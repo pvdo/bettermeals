@@ -1,0 +1,109 @@
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-c-tabs">
+
+                <!-- TABS -->
+                <ul class="nav nav-tabs md-tabs tabs-2" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active text-success" data-toggle="tab" href="#log" role="tab"><i
+                                class="fa fa-user mr-1"></i>
+                            Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" data-toggle="tab" href="#reg" role="tab"><i
+                                class="fa fa-user-plus mr-1"></i>
+                            Register</a>
+                    </li>
+
+                </ul>
+
+
+                <!-- Tab panels -->
+                <div class="tab-content">
+                    <!--Panel 7-->
+                    <div class="tab-pane fade in show active" id="log" role="tabpanel">
+
+                        <!--Body-->
+                        <div class="modal-body mb-1">
+                            <div class="md-form form-sm mb-5">
+                                <i class="fa fa-envelope-o"></i>
+                                <label data-error="wrong" data-success="right" for="logEmail">
+                                    Email</label>
+                                <input type="email" id="logEmail" class="form-control form-control-sm validate">
+
+                            </div>
+
+                            <div class="md-form form-sm mb-4">
+                                <i class="fa fa-lock"></i>
+                                <label data-error="wrong" data-success="right" for="logPassword">Your
+                                    password</label>
+                                <input type="password" id="logPassword" class="form-control form-control-sm validate">
+
+                            </div>
+                            <div class="text-center mt-2">
+                                <button class="btn btn-success">Log in</button>
+                            </div>
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <!--Login-->
+
+                    <!--Registration-->
+                    <div class="tab-pane fade" id="reg" role="tabpanel">
+
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            <!-- First Name -->
+                            <div class="md-form form-sm mb-5">
+                                <label data-error="wrong" data-success="right" for="fName">First Name</label>
+                                <input type="name" id="fName" class="form-control form-control-sm validate">
+                            </div>
+                            <!-- Last Name -->
+                            <div class="md-form form-sm mb-5">
+                                <label data-error="wrong" data-success="right" for="lName">Last Name</label>
+                                <input type="email" id="lName" class="form-control form-control-sm validate">
+                            </div>
+                            <!-- Email -->
+                            <div class="md-form form-sm mb-5">
+                                <label data-error="wrong" data-success="right" for="regEmail">Email</label>
+                                <input type="email" id="regEmail" class="form-control form-control-sm validate">
+                            </div>
+                            <!-- Password -->
+                            <div class="md-form form-sm mb-5">
+                                <label data-error="wrong" data-success="right" for="regPass"> Password</label>
+                                <input type="password" id="regPass" class="form-control form-control-sm validate">
+                            </div>
+
+                            <div class="md-form form-sm mb-4">
+                                <label data-error="wrong" data-success="right" for="repeatPass">Repeat
+                                    Password</label>
+                                <input type="password" id="repeatPass" class="form-control form-control-sm validate">
+
+                            </div>
+
+                            <div class="text-center form-sm mt-2">
+                                <button class="btn btn-success">Sign up</button>
+                            </div>
+
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

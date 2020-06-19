@@ -1,0 +1,46 @@
+<footer class="page-footer font-small bg-success text-white pt-4">
+    <div class="container text-center">
+        <div class="row">
+            <!-- column1 -->
+            <div class="col-md-4 mt-md-0 mt-3">
+                <img src="images/logo_white.png">
+            </div>
+
+            <!-- column2 -->
+            <div class="col-md-4 mb-md-0 mb-3">
+                <a class="text-white nav-link" href="meals">
+                    <h5>Menu Packages</h5>
+                </a>
+                <ul class="list-unstyled">
+                    {{#each data}}
+                    <li>
+                        {{this.mealTitle}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <!-- column3 -->
+            <div class="col-md-4 mb-md-0 mb-3">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="text-white btn m-0 p-0" data-toggle="modal" data-target="#register">
+                            <h5>Login/Registration</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <div>
+                            <a class="text-white" href="#"><i class="fa fa-facebook-official"></i></a>
+                            <a class="text-white" href="#"><i class="fa fa-instagram"></i></a>
+                            <a class="text-white" href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<div class="footer-copyright text-center py-3">© 2020 Pedro do Carmo</div>
+<div class="footer-copyright text-center py-3"><a
+        href="https://medium.com/@pedroteixeira88/creating-a-meal-delivery-website-part-1-206679b8d36b"> Website
+        Report</a></div>
