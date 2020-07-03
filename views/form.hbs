@@ -1,0 +1,41 @@
+{{>header}}
+<div class="container my-5">
+    <div class=" mx-auto card border border-success" style="width:500px;">
+        <h2 class="card-header bg-success text-white text-center">Login</h2>
+        <form action="/form" method="POST">
+            <!--BODY LOGIN-->
+
+            <div id="loginEmail" class="md-form form-sm mx-5 my-3">
+                <i class="fa fa-envelope-o"></i>
+                <label for="logEmail">
+                    Email</label>
+                <input id="logEmail" autocomplete="email" name="logEmail" placeholder="example@example.com"
+                    value="{{message.email}}" class="form-control form-control-sm validate">
+                {{#if message.emailError}}
+                <div id="emailInvalid" class="invalid text-danger">
+                    Email is required.
+                </div>
+                {{/if}}
+
+            </div>
+
+            <div class="md-form form-sm mx-5 my-3">
+                <i class="fa fa-lock"></i>
+                <label data-error="wrong" data-success="right" for="logPassword">Your
+                    password</label>
+                <input type="password" id="logPassword" name="logPassword" value="{{message.pass}}"
+                    class="form-control form-control-sm validate">
+                {{#if message.passError}}
+                <div id="passInvalid" class="text-danger">
+                    Password is required.
+                </div>
+                {{/if}}
+            </div>
+            <div class="text-center mt-2">
+                <button type="submit" class="btn btn-success mb-5">Log in</button>
+            </div>
+            <!--Footer-->
+        </form>
+    </div>
+</div>
+{{>footer}}

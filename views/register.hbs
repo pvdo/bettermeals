@@ -1,0 +1,122 @@
+{{>header}}
+<div class="container my-5">
+    <div class=" mx-auto card border border-success" style="width:500px;">
+        <h1 class="card-header bg-success text-white text-center">Register</h1>
+        <form action="/register" method="POST">
+            <div class="modal-body">
+
+                <!-- First Name -->
+                <div class="md-form form-sm mb-3">
+                    <label for="fName">First Name {{reg.fname}}</label>
+                    <input type="name" id="fName" name="fName" autocomplete="name" value="{{reg.fname}}"
+                        class="form-control form-control-sm">
+                    {{#if reg.fnameError}}
+                    <div class="text-danger">
+                        First Name is required.
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- Last Name -->
+                <div class="md-form form-sm mb-3">
+                    <label for="lName">Last Name</label>
+                    <input type="name" id="lName" name="lName" value="{{reg.lname}}" autocomplete="family-name"
+                        class="form-control form-control-sm validate">
+                    {{#if reg.lnameError}}
+                    <div class="text-danger">
+                        Last Name is required.
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- Email -->
+                <div class="md-form form-sm mb-3">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="regEmail" autocomplete="email" value="{{reg.email}}"
+                        class="form-control form-control-sm validate">
+                    {{#if reg.emailError.empty}}
+                    <div class="text-danger">
+                        Email is required.
+                    </div>
+                    {{/if}}
+                    {{#if reg.emailError.isEmail}}
+                    <div class="text-danger">
+                        Must be an email.
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- Password -->
+                <div class="md-form form-sm mb-3">
+                    <label for="regPass"> Password</label>
+                    <input type="password" tab-index="1" id="regPass" name="regPass" value="{{reg.pass}}"
+                        class="form-control form-control-sm validate">
+
+                    <!-- Validation Password Box -->
+                    {{#if reg.passError.box}}
+                    <div class="alert alert-secondary password-alert mt-2" role="alert">
+                        <ul class="list-unstyled">
+
+                            <li class="requirements leng">
+                                {{#if reg.passError.charLength}}
+                                <i class="fa fa-times text-danger"></i>
+                                {{else}}
+                                <i class="fa fa-check text-success"></i>
+                                {{/if}}
+                                Your password must have at least 8 characters.
+                            </li>
+
+                            <li class="requirements big-letter">
+                                {{#if reg.passError.capital}}
+                                <i class="fa fa-times text-danger"></i>
+                                {{else}}
+                                <i class="fa fa-check text-success"></i>
+                                {{/if}}
+                                Your password must have at least one capital letter.
+                            </li>
+
+                            <li class="requirements num">
+                                {{#if reg.passError.digit}}
+                                <i class="fa fa-times text-danger"></i>
+                                {{else}}
+                                <i class="fa fa-check text-success"></i>
+                                {{/if}}
+                                Your password must have at least 1 digit.
+                            </li>
+
+                            <li class="requirements special-char">
+                                {{#if reg.passError.specialChar}}
+                                <i class="fa fa-times text-danger"></i>
+                                {{else}}
+                                <i class="fa fa-check text-success"></i>
+                                {{/if}}
+                                Your password must have at least 1 special character.
+                            </li>
+                        </ul>
+                    </div>
+                    {{/if}}
+
+
+                </div>
+                <!-- Repeat Password -->
+                <div class="md-form form-sm mb-3">
+                    <label for="repeatPass">Repeat
+                        Password</label>
+                    <input type="password" id="repeatPass" name="repeatPass" value="{{reg.repeatPass}}"
+                        class="form-control form-control-sm validate">
+                    {{#if reg.repeatPassError}}
+                    <div class="text-danger">
+                        The password must be the same.
+                    </div>
+                    {{/if}}
+                </div>
+
+
+                <div class="text-center form-sm mt-2">
+                    <button type="submit" class="btn btn-success">Sign up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{>footer}}

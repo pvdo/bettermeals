@@ -24,82 +24,125 @@
                     <!--Panel 7-->
                     <div class="tab-pane fade in show active" id="log" role="tabpanel">
 
-                        <!--Body-->
-                        <div class="modal-body mb-1">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fa fa-envelope-o"></i>
-                                <label data-error="wrong" data-success="right" for="logEmail">
-                                    Email</label>
-                                <input type="email" id="logEmail" class="form-control form-control-sm validate">
+                        <form action="/login" method="POST">
+                            <!--BODY LOGIN-->
+                            <div class="modal-body mb-1">
 
+                                <div id="loginEmail" class="md-form form-sm mb-5">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <label data-error="wrong" data-success="right" for="logEmail">
+                                        Email</label>
+                                    <input type="email" id="logEmail" autocomplete="email" name="logEmail"
+                                        placeholder="example@example.com" class="form-control form-control-sm validate">
+                                    {{#if message}}
+                                    <div id="emailInvalid" class="invalid text-danger">
+                                        Email is required.
+                                    </div>
+                                    {{/if}}
+
+                                </div>
+
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fa fa-lock"></i>
+                                    <label data-error="wrong" data-success="right" for="logPassword">Your
+                                        password</label>
+                                    <input type="password" id="logPassword" name="logPassword"
+                                        class="form-control form-control-sm validate">
+                                    {{#if message.passError}}
+                                    <div id="passInvalid" class="text-danger">
+                                        Password is required.
+                                    </div>
+                                    {{/if}}
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button type="submit" class="btn btn-success">Log in</button>
+                                </div>
                             </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fa fa-lock"></i>
-                                <label data-error="wrong" data-success="right" for="logPassword">Your
-                                    password</label>
-                                <input type="password" id="logPassword" class="form-control form-control-sm validate">
-
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="text-center mt-2">
-                                <button class="btn btn-success">Log in</button>
-                            </div>
-                        </div>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
+                        </form>
                     </div>
                     <!--Login-->
 
-                    <!--Registration-->
+                    <!--BODY REGISTRATION-->
                     <div class="tab-pane fade" id="reg" role="tabpanel">
 
                         <!--Body-->
-                        <div class="modal-body">
+                        <form action="/reg-user" method="POST">
+                            <div class="modal-body">
 
-                            <!-- First Name -->
-                            <div class="md-form form-sm mb-5">
-                                <label data-error="wrong" data-success="right" for="fName">First Name</label>
-                                <input type="name" id="fName" class="form-control form-control-sm validate">
-                            </div>
-                            <!-- Last Name -->
-                            <div class="md-form form-sm mb-5">
-                                <label data-error="wrong" data-success="right" for="lName">Last Name</label>
-                                <input type="email" id="lName" class="form-control form-control-sm validate">
-                            </div>
-                            <!-- Email -->
-                            <div class="md-form form-sm mb-5">
-                                <label data-error="wrong" data-success="right" for="regEmail">Email</label>
-                                <input type="email" id="regEmail" class="form-control form-control-sm validate">
-                            </div>
-                            <!-- Password -->
-                            <div class="md-form form-sm mb-5">
-                                <label data-error="wrong" data-success="right" for="regPass"> Password</label>
-                                <input type="password" id="regPass" class="form-control form-control-sm validate">
+                                <!-- First Name -->
+                                <div class="md-form form-sm mb-5">
+                                    <label data-error="wrong" data-success="right" for="fName">First Name</label>
+                                    <input type="name" id="fName" name="fName" autocomplete="name"
+                                        class="form-control form-control-sm validate">
+                                </div>
+                                <!-- Last Name -->
+                                <div class="md-form form-sm mb-5">
+                                    <label data-error="wrong" data-success="right" for="lName">Last Name</label>
+                                    <input type="name" id="lName" name="lName" autocomplete="family-name"
+                                        class="form-control form-control-sm validate">
+                                </div>
+                                <!-- Email -->
+                                <div class="md-form form-sm mb-5">
+                                    <label data-error="wrong" data-success="right" for="regEmail">Email</label>
+                                    <input type="email" id="regEmail" name="regName" autocomplete="email"
+                                        placeholder="example@example.com" class="form-control form-control-sm validate">
+                                </div>
+                                <!-- Password -->
+                                <div class="md-form form-sm mb-5">
+                                    <label data-error="wrong" data-success="right" for="regPass"> Password</label>
+                                    <input type="password" id="regPass" name="regPass"
+                                        class="form-control form-control-sm validate">
+                                    s
+                                    <!-- Validation Box -->
+                                    <div class="alert alert-secondary password-alert mt-2" role="alert">
+                                        <ul class="list-unstyled">
+                                            <li class="requirements leng"><i class="fa fa-check text-success"></i><i
+                                                    class="fa fa-times text-danger"></i> Your password must have at
+                                                least
+                                                8 characters.</li>
+                                            <li class="requirements big-letter"><i
+                                                    class="fa fa-check text-success"></i><i
+                                                    class="fa fa-times text-danger"></i> Your password must have at
+                                                least
+                                                one capital letter.</li>
+                                            <li class="requirements num"><i class="fa fa-check text-success"></i><i
+                                                    class="fa fa-times text-danger"></i> Your password must have at
+                                                least
+                                                1 digit.</li>
+                                            <li class="requirements special-char"><i
+                                                    class="fa fa-check text-success"></i><i
+                                                    class="fa fa-times text-danger"></i> Your password must have at
+                                                least
+                                                1 special character.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="md-form form-sm mb-4">
+                                    <label data-error="wrong" data-success="right" for="repeatPass">Repeat
+                                        Password</label>
+                                    <input type="password" id="repeatPass" name="repeatPass"
+                                        class="form-control form-control-sm validate">
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-success">Sign up</button>
+                                </div>
                             </div>
 
-                            <div class="md-form form-sm mb-4">
-                                <label data-error="wrong" data-success="right" for="repeatPass">Repeat
-                                    Password</label>
-                                <input type="password" id="repeatPass" class="form-control form-control-sm validate">
-
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-
-                            <div class="text-center form-sm mt-2">
-                                <button class="btn btn-success">Sign up</button>
-                            </div>
-
-                        </div>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
