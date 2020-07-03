@@ -2,6 +2,7 @@ module.exports.getData = function () {
   var meals = [
     {
       image: "images/salmon.jpg",
+      alt: "salmon",
       mealTitle: "Keto",
       price: "$160",
       category: "Low-Carb",
@@ -11,6 +12,7 @@ module.exports.getData = function () {
     },
     {
       image: "images/small/beef.jpg",
+      alt: "beef",
       mealTitle: "Paleo",
       price: "$160",
       category: "Low-Carb",
@@ -20,6 +22,7 @@ module.exports.getData = function () {
     },
     {
       image: "images/small/mediterranean.jpg",
+      alt: "fish and vegetables",
       mealTitle: "Mediterranean",
       price: "$150",
       category: "Plant-Based",
@@ -29,6 +32,7 @@ module.exports.getData = function () {
     },
     {
       image: "images/vegan.jpg",
+      alt: "vegan plate",
       mealTitle: "Vegan",
       price: "$140",
       category: "Plant-Based",
@@ -38,6 +42,7 @@ module.exports.getData = function () {
     },
     {
       image: "images/detox.jpg",
+      alt: "vegetable cream",
       mealTitle: "One Week Detox",
       price: "$75",
       category: "Special-Meal-Plans",
@@ -47,6 +52,7 @@ module.exports.getData = function () {
     },
     {
       image: "images/soup.jpg",
+      alt: "soup",
       mealTitle: "Soup",
       price: "$95",
       category: "Special-Meal-Plans",

@@ -32,7 +32,7 @@
                 <!-- Email -->
                 <div class="md-form form-sm mb-3">
                     <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail" name="regEmail" autocomplete="email" value="{{reg.email}}"
+                    <input id="regEmail" name="regEmail" autocomplete="email" value="{{reg.email}}"
                         class="form-control form-control-sm validate">
                     {{#if reg.emailError.empty}}
                     <div class="text-danger">
@@ -115,6 +115,9 @@
                 <div class="text-center form-sm mt-2">
                     <button type="submit" class="btn btn-success">Sign up</button>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <a class="text-success text-center" href="form">I already have an account </a>
             </div>
         </form>
     </div>
