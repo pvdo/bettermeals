@@ -5,9 +5,16 @@
         <form action="/register" method="POST">
             <div class="modal-body">
 
+                <!-- Clerk or user -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" name="clerk" id="customer" value="customer">
+                    <label class="form-check-label" for="customer">
+                        I am a clerk
+                    </label>
+                </div>
                 <!-- First Name -->
                 <div class="md-form form-sm mb-3">
-                    <label for="fName">First Name {{reg.fname}}</label>
+                    <label for="fName">First Name</label>
                     <input type="name" id="fName" name="fName" autocomplete="name" value="{{reg.fname}}"
                         class="form-control form-control-sm">
                     {{#if reg.fnameError}}
@@ -114,7 +121,14 @@
 
                 <div class="text-center form-sm mt-2">
                     <button type="submit" class="btn btn-success">Sign up</button>
+
+                    {{#if dbReg}}
+                    <div class="text-danger h4 mt-2">
+                        Email already registered
+                    </div>
+                    {{/if}}
                 </div>
+
             </div>
             <div class="modal-footer">
                 <a class="text-success text-center" href="form">I already have an account </a>

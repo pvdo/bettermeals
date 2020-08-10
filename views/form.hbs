@@ -5,6 +5,7 @@
         <form action="/form" method="POST">
             <!--BODY LOGIN-->
 
+
             <div id="loginEmail" class="md-form form-sm mx-5 my-3">
                 <i class="fa fa-envelope-o"></i>
                 <label for="logEmail">
@@ -32,7 +33,12 @@
                 {{/if}}
             </div>
             <div class="text-center mt-2">
-                <button type="submit" class="btn btn-success mb-5">Log in</button>
+                <button type="submit" class="btn btn-success mb-2">Log in</button>
+                {{#if isFound}}
+                <div id="emailInvalid" class="mb-2 text-danger">
+                    Sorry, you entered the wrong email and/or password
+                </div>
+                {{/if}}
             </div>
             <!--Footer-->
             <div class="modal-footer">

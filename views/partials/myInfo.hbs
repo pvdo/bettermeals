@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <div class=" mx-auto card border border-success" style="width:500px;">
+        <h1 class="card-header bg-success text-white text-center">My Information</h1>
+        <div class="modal-body">
+
+            <!-- First Name -->
+            <div class="mb-3">
+                <label>First Name</label>
+                <h3>{{user.fname}}</h3>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label>Last Name</label>
+                <h3>{{user.lname}}</h3>
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label>Email</label>
+                <h3>{{user.email}}</h3>
+            </div>
+            {{#if user.clerk}}
+            <div class="mb-3">
+                <label>Clerk?</label>
+                <h4>Yes</h4>
+            </div>
+            {{/if}}
+
+
+
+
+        </div>
+    </div>

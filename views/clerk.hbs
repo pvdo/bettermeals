@@ -1,0 +1,14 @@
+{{>headerUser}}
+<div class="container m-5">
+    <h1>Welcome {{user.fname}} {{user.lname}}.</h1>
+</div>
+
+{{>navUser}}
+
+
+<div id="create" style="display: block;">{{>createMeal}} </div>
+<div id="edit" style="display: none;">{{>editMeals}}</div>
+<div id="info" style="display: none;">{{>myInfo}}</div>
+
+
+{{>footer}}

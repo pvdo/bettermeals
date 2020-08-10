@@ -1,69 +1,4 @@
-module.exports.getData = function () {
-  var meals = [
-    {
-      image: "images/salmon.jpg",
-      alt: "salmon",
-      mealTitle: "Keto",
-      price: "$160",
-      category: "Low-Carb",
-      numberOfMeals: "14",
-      synopsis: "Low-carb meals, get fit faster!",
-      top: true,
-    },
-    {
-      image: "images/small/beef.jpg",
-      alt: "beef",
-      mealTitle: "Paleo",
-      price: "$160",
-      category: "Low-Carb",
-      numberOfMeals: "14",
-      synopsis: "Hunter-gather diet. Plan focus to gain muscle",
-      top: false,
-    },
-    {
-      image: "images/small/mediterranean.jpg",
-      alt: "fish and vegetables",
-      mealTitle: "Mediterranean",
-      price: "$150",
-      category: "Plant-Based",
-      numberOfMeals: "14",
-      synopsis: "Meal plan rich in vegetables and whole grains",
-      top: true,
-    },
-    {
-      image: "images/vegan.jpg",
-      alt: "vegan plate",
-      mealTitle: "Vegan",
-      price: "$140",
-      category: "Plant-Based",
-      numberOfMeals: "14",
-      synopsis: "All meals prepared with no-animal ingredients",
-      top: true,
-    },
-    {
-      image: "images/detox.jpg",
-      alt: "vegetable cream",
-      mealTitle: "One Week Detox",
-      price: "$75",
-      category: "Special-Meal-Plans",
-      numberOfMeals: "7",
-      synopsis: "Temporary diet to clean your body from toxins",
-      top: true,
-    },
-    {
-      image: "images/soup.jpg",
-      alt: "soup",
-      mealTitle: "Soup",
-      price: "$95",
-      category: "Special-Meal-Plans",
-      numberOfMeals: "14",
-      synopsis: "Specialty diet for those who can't take in solid food",
-      top: false,
-    },
-  ];
-
-  return meals;
-};
+//LOGIN VALIDATION
 module.exports.login = (body) => {
   return new Promise((resolve, reject) => {
     var returnObj = {
@@ -101,11 +36,12 @@ module.exports.login = (body) => {
   });
 };
 
-//Register
+//REGISTER VALIDATION
 module.exports.register = (body) => {
   return new Promise((resolve, reject) => {
     var returnObj = {
       //Values
+      clerk: body.clerk,
       fname: body.fName,
       lname: body.lName,
       email: body.regEmail,
@@ -195,3 +131,158 @@ module.exports.register = (body) => {
     }
   });
 };
+
+// ADD MEAL VALIDATION
+module.exports.package = (body) => {
+  return new Promise((resolve, reject) => {
+    var returnObj = {
+      //Values
+      packageTitle: body.packageTitle,
+      price: body.price,
+      synopsis: body.synopsis,
+      category: body.category,
+      numberOfMeals: body.numberOfMeals,
+      top: body.top,
+      image: body.image,
+      //Errors Flags
+      nameError: false,
+      priceError: false,
+      priceErrorNumber: false,
+      priceErrorAbove: false,
+      descriptionError: false,
+      categoryError: false,
+      imageError: false,
+      numberErrorAbove: false,
+      numberError: false,
+      success: false,
+    };
+
+    var flag = false;
+    //Check Name is empty
+    if (!returnObj.packageTitle) {
+      returnObj.nameError = true;
+      flag = true;
+    }
+    //Check Price is empty
+    if (!body.price) {
+      returnObj.priceError = true;
+      flag = true;
+    }
+    //Check Price is a number above 0
+    if (body.price <= 0 || !body.price.match(/^\$?\d+(,\d{3})*(\.\d*)?$/)) {
+      returnObj.priceErrorAbove = true;
+      flag = true;
+    }
+    //Check Description
+    if (!body.synopsis) {
+      returnObj.descriptionError = true;
+      flag = true;
+    }
+    //Check Category
+    if (!body.category) {
+      returnObj.categoryError = true;
+      flag = true;
+    }
+    if (!body.image) {
+      returnObj.imageError = true;
+      flag = true;
+    }
+    //Check number of meals
+    if (!body.numberOfMeals > 0) {
+      returnObj.numberErrorAbove = true;
+      flag = true;
+    }
+    if (flag == true) {
+      reject(returnObj);
+      return;
+    } else {
+      returnObj.success = true;
+      resolve(returnObj);
+      return;
+    }
+  });
+};
+
+// module.exports.getData = function () {
+//   var meals = [
+//     {
+//       image: "images/salmon.jpg",
+//       alt: "salmon",
+//       mealTitle: "Keto",
+//       price: "$160",
+//       category: "Low-Carb",
+//       numberOfMeals: "14",
+//       synopsis: "Low-carb meals, get fit faster!",
+//       top: true,
+//       package: true,
+//     },
+//     {
+//       image: "images/small/beef.jpg",
+//       alt: "beef",
+//       mealTitle: "Paleo",
+//       price: "$160",
+//       category: "Low-Carb",
+//       numberOfMeals: "14",
+//       synopsis: "Hunter-gather diet. Plan focus to gain muscle",
+//       top: false,
+//       package: true,
+//     },
+//     {
+//       image: "images/small/mediterranean.jpg",
+//       alt: "fish and vegetables",
+//       mealTitle: "Mediterranean",
+//       price: "$150",
+//       category: "Plant-Based",
+//       numberOfMeals: "14",
+//       synopsis: "Meal plan rich in vegetables and whole grains",
+//       top: true,
+//       package: true,
+//     },
+//     {
+//       image: "images/vegan.jpg",
+//       alt: "vegan plate",
+//       mealTitle: "Vegan",
+//       price: "$140",
+//       category: "Plant-Based",
+//       numberOfMeals: "14",
+//       synopsis: "All meals prepared with no-animal ingredients",
+//       top: true,
+//       package: true,
+//     },
+//     {
+//       image: "images/detox.jpg",
+//       alt: "vegetable cream",
+//       mealTitle: "One Week Detox",
+//       price: "$75",
+//       category: "Special-Meal-Plans",
+//       numberOfMeals: "7",
+//       synopsis: "Temporary diet to clean your body from toxins",
+//       top: true,
+//       package: true,
+//     },
+//     {
+//       image: "images/soup.jpg",
+//       alt: "soup",
+//       mealTitle: "Soup",
+//       price: "$95",
+//       category: "Special-Meal-Plans",
+//       numberOfMeals: "14",
+//       synopsis: "Specialty diet for those who can't take in solid food",
+//       top: false,
+//       package: true,
+//     },
+//     {
+//       image: "images/soup.jpg",
+//       alt: "soup",
+//       mealTitle: "Soup",
+//       price: "$10",
+//       category: "Special-Meal-Plans",
+//       numberOfMeals: "14",
+//       synopsis: "Specialty diet for those who can't take in solid food",
+//       top: false,
+//       package: false,
+//     },
+//   ];
+
+//   return meals;
+// };

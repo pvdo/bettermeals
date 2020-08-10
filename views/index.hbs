@@ -1,38 +1,16 @@
+{{#if user.fname}}
+{{>headerUser}}
+{{else}}
 {{>header}}
-<style>
-    .div-img {
-        width: 100%;
-        height: 170px;
+{{/if}}
 
-    }
 
-    .img-gal {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
-    .btn-xl {
-        padding: 18px 28px;
-        font-size: 35px;
-        line-height: normal;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-    }
-
-    .img-hero {
-        width: 100%;
-        height: 100vh;
-        background-image: url(https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3150&q=80);
-        background-size: cover;
-    }
-</style>
 <div class="jumbotron img-hero">
     <div>
-        <h1 class="display-1">BETTER MEALS</h1>
-        <p class="lead mb-5">No matter what is your favourite diet we have perfect balanced meal package for you! </p>
-        <a class="btn btn-success btn-xl text-white" href="register">Get Your Meals</a>
+        <h2 class="display-4">BETTER MEALS</h2>
+        <p class="lead mb-5">No matter what is your favorite diet we have perfect balanced meal package for you! </p>
+        <a class="btn btn-success btn-xl text-white" href="/register">Get Your Meals</a>
     </div>
 </div>
 <div class="container py-5 text-center">
@@ -67,14 +45,19 @@
     <div class="container py-5 text-center">
         <h2 class="mb-5">Find your perfect meal plan</h2>
         <div class="row h-25">
-            {{#each data}}
+            {{#each package}}
             {{#if top}}
-            <div class="col-md-3 ">
-                <div class="div-img mt-3"> <img class="img-gal border border-success rounded-top" alt="{{this.alt}}"
-                        src="{{this.image}}">
+            <div class="col-md-3 mb-2">
+
+                <div class=" div-img border border-success rounded">
+
+                    <a href="/package?package={{packageTitle}}" class="btn btn-link p-0 m-0 div-img"><img
+                            class="img-gal" alt="Image of {{this.packageTitle}}" src="images/{{this.image}}"></img></a>
+
                 </div>
+
                 <div class="bg-success rounded-bottom text-white">
-                    <h5 class="text-center py-1 m-0">{{this.mealTitle}}</h5>
+                    <h5 class="text-center py-1 m-0">{{this.packageTitle}}</h5>
                     <hr class="m-0">
                     <h5 class="text-center py-1 m-0">{{this.price}}</h5>
                 </div>
@@ -85,3 +68,35 @@
     </div>
 </div>
 {{>footer}}
+
+<style>
+    .div-img {
+        width: 100%;
+        height: 170px;
+
+    }
+
+    .img-gal {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .btn-xl {
+        padding: 18px 28px;
+        font-size: 35px;
+        line-height: normal;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+    }
+
+    .img-hero {
+        width: 100%;
+        height: 100vh;
+        background-image: url(https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3150&q=80);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right 45% bottom 10%;
+    }
+</style>

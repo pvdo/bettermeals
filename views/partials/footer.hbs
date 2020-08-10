@@ -1,46 +1,53 @@
-<footer class="footer page-footer font-small bg-success text-white pt-4">
+<footer class="footer page-footer font-small bg-success text-white">
     <div class="container text-center">
         <div class="row">
             <!-- column1 -->
-            <div class="col-md-4 mt-md-0 mt-3">
-                <img src="images/logo_white.png">
+            <div class="col-md-4">
+                <img src="/images/logo_white.png">
             </div>
 
             <!-- column2 -->
-            <div class="col-md-4 mb-md-0 mb-3">
+            <div class="col-md-4 mb-md-0 my-4">
                 <a class="text-white " href="meals">
-                    <h5>Menu Packages</h5>
+                    <h5>Packages</h5>
                 </a>
-                <ul class="list-unstyled">
-                    <li>Keto</li>
-                    <li>Paleo</li>
-                    <li>Mediterranean</li>
-                    <li>Vegan</li>
-                    <li>One Week Detox</li>
-                    <li>Soup</li>
-                </ul>
+
+                <a class="text-white " href="#">
+                    <h5 class="mt-4">Contact Us</h5>
+                </a>
+                <div class="mt-4">
+                    <a class="text-white" href="#"><i class="fa fa-facebook-official"></i></a>
+                    <a class="text-white" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="text-white" href="#"><i class="fa fa-envelope-o"></i></a>
+                </div>
+
             </div>
             <!-- column3 -->
-            <div class="col-md-4 mb-md-0 mb-3">
+            <div class="col-md-4 mb-md-0 my-5 pt-3">
                 <ul class="list-unstyled">
+                    {{#if user.fname}}
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="btn btn-dark">Log Out </button>
+                    </form>
+                    {{else}}
                     <li>
-                        <a class="text-white btn m-0 p-0" href="form">
-                            <h5>Login</h5>
+                        <a class="text-white" href="form">
+                            <button class="btn btn-md btn-light mb-3">Login</button>
                         </a>
                     </li>
                     <li>
                         <a class="text-white btn m-0 p-0" href="register">
-                            <h5>Registration</h5>
+                            <button class="btn btn-light">Registration</button>
                         </a>
                     </li>
+                    {{/if}}
+
+
                     <li>
-                        <div>
-                            <a class="text-white" href="#"><i class="fa fa-facebook-official"></i></a>
-                            <a class="text-white" href="#"><i class="fa fa-instagram"></i></a>
-                            <a class="text-white" href="#"><i class="fa fa-envelope-o"></i></a>
-                        </div>
+
                     </li>
                 </ul>
+
             </div>
         </div>
 

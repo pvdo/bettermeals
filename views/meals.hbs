@@ -1,3 +1,52 @@
+{{#if user.fname}}
+{{>headerUser}}
+{{else}}
+{{>header}}
+{{/if}}
+<div class="jumbotron"
+    style="background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgba(0,0,0, 0.3)),url(https://images.unsplash.com/photo-1591189863430-ab87e120f312?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80) ;background-size:cover;">
+    <div class="align-middle">
+        <h1 class="display-2 text-white">MEALS</h1>
+    </div>
+</div>
+<div class="container my-5 text-center">
+    <h2 class="text-left text-success">Packages</h2>
+    <div class="row">
+        {{#each package}}
+        <div class="col-md-3 mt-3">
+            <div class="border border-success rounded ">
+                <div class="div-img border border-success ">
+
+                    <a href="/package?package={{packageTitle}}" class="p-0" class="btn btn-link div-img"><img
+                            class=" img-gal" alt="Image of {{this.packageTitle}}" src="images/{{this.image}}"></img></a>
+
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item bg-success rounded-0">
+                        <h5 class="text-white mb-0"><strong>{{this.packageTitle}}</strong></h5>
+                    </li>
+
+                    <li class="list-group-item border-top border-success">
+                        <p class="mb-0"> {{this.category}}</p>
+                    </li>
+                    <li class="list-group-item border-top border-success">
+                        <p class="mb-0">${{this.price}} / {{this.numberOfMeals}} meals</p>
+                    </li>
+                    <li class="list-group-item border-top border-success">
+                        <p class=" mb-0">{{this.synopsis}}</p>
+                    </li>
+                    <li class="list-group-item border-top border-success">
+                        <button type="button" class="btn btn-success" onclick='addToCart("{{packageTitle}}")'
+                            class="mb-0">Add to
+                            cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{>footer}}
 <style>
     .div-img {
         width: 100%;
@@ -15,42 +64,3 @@
         height: 253px;
     }
 </style>
-
-
-{{>header}}
-<div class="jumbotron"
-    style="background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgba(0,0,0, 0.3)),url(https://images.unsplash.com/photo-1591189863430-ab87e120f312?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80) ;background-size:cover;">
-    <div class="align-middle">
-        <h1 class="display-2 text-white">MEALS PACKAGE</h1>
-    </div>
-</div>
-<div class="container my-5 text-center">
-
-    <div class="row">
-        {{#each data}}
-        <div class="col-md-3 mt-3">
-            <div class="border border-success rounded">
-                <div class="div-img border border-success ">
-                    <img class="img-gal" alt="{{this.alt}}" src="{{this.image}}"></img>
-                </div>
-                <ul class="list-group list-group-flush bg-transparent">
-                    <li class="list-group-item bg-success">
-                        <h5 class="text-white mb-0"><strong>{{this.mealTitle}}</strong></h5>
-                    </li>
-
-                    <li class="list-group-item">
-                        <p class="mb-0"> {{this.category}}</p>
-                    </li>
-                    <li class="list-group-item ">
-                        <p class="mb-0">{{this.price}} / {{this.numberOfMeals}} meals</p>
-                    </li>
-                    <li class="list-group-item bg-transparent">
-                        <p class=" mb-0">{{this.synopsis}}</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-</div>
-{{>footer}}

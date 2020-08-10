@@ -1,0 +1,52 @@
+{{#if user.fname}}
+{{>headerUser}}
+{{else}}
+{{>header}}
+{{/if}}
+<div class="container my-5 text-center">
+    <div class="row">
+        <div class="col-md-6 my-3">
+            <div class="div-img border border-success rounded">
+                <img class="img-gal" alt="Image of salmon" src="/images/{{data.image}}"></img>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3 pt-5 div-img border border-success rounded">
+            <div class="mt-5">
+                <div class="my-5">
+                    <h2 class=" my-5"><strong>{{data.packageTitle}}</strong></h5>
+                </div>
+                <div>
+                    <p class="my-5">${{data.price}}</p>
+                </div>
+                <div>
+                    <p class=" my-5">{{data.synopsis}}</p>
+                </div>
+                <div class="my-5">
+                    <button type="button" onclick='addToCart("{{data.packageTitle}}")' class="mb-0 btn btn-success">Add
+                        to
+                        cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{>footer}}
+
+<style>
+    .div-img {
+        width: 100%;
+        height: 500px;
+
+    }
+
+    .img-gal {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .div-center {
+        margin: auto;
+    }
+</style>

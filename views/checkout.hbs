@@ -1,0 +1,92 @@
+{{#if user.fname}}
+{{>headerUser}}
+{{else}}
+{{>header}}
+{{/if}}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-8">
+            <div class="panel-heading ">
+                <div class="panel-title">
+                    <h5><span class="fa fa-shopping-cart"></span> My Shopping Cart</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="panel-body">
+                <div class="list">
+
+                    {{#each user.cartData.cart}}
+                    <div class="row">
+                        <div class="col-sm-2 div-img">
+                            <img class="img-gal" src="/images/{{image}}">
+                        </div>
+                        <div class="col-sm-3 mt-3">
+                            <h5 class="product-name"><strong>{{packageTitle}}</strong></h5>
+                            <h5>$ {{price}}</h5>
+
+                        </div>
+                        <div class="col-sm-5 mt-4">
+                            <h4><small>{{synopsis}}</small></h4>
+
+                        </div>
+                        <div class="col-sm-1 mt-4">
+                            <button type="button" class="btn btn-danger btn-xs"
+                                onclick='removeFromCart("{{packageTitle}}")'>
+                                <span class="fa fa-trash fa-sm"></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 text-center">
+            <h4>Total <strong class="total"> ${{user.cartData.total}}</strong></h4>
+            {{#if user.fname}}
+            {{#if empty}}
+            <p id="textEmpty" class="text-danger" style="display: block;">Your cart is empty</p>
+            <form action="/placeOrder" method="POST">
+                <button id="placeDisabled" type="submit" class="btn btn-success btn-block" style="display: block;"
+                    disabled>
+                    Place Order
+                </button>
+            </form>
+            {{else}}
+            <form action="/placeOrder" method="POST">
+                <button id="placeEnabled" type="submit" class="btn btn-success btn-block" style="display: block;">
+                    Place Order
+                </button>
+            </form>
+            {{/if}}
+            {{else}}
+            <p class=" text-danger">Log in to place your order</p>
+            <a href="/form" class="btn btn-success btn-block">
+                Login
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+{{>footer}}
+<style>
+    .div-img {
+        width: 100%;
+        height: 100px;
+
+    }
+
+    .img-gal {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ul-grid {
+        height: 253px;
+    }
+</style>

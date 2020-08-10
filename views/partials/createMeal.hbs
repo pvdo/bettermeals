@@ -1,0 +1,117 @@
+{{#if success}}
+<div class="container my-5" id="success" style="display: block;">
+    <div class=" mx-auto card border border-success" style="width:500px;">
+        <h5 class="text-center">Package added successfully</h5>
+    </div>
+</div>
+{{/if}}
+<div class="container my-5">
+    <div class=" mx-auto card border border-success" style="width:500px;">
+        <h1 class="card-header bg-success text-white text-center">Add new meal package</h1>
+        <form action="/createMeal" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+
+
+                <!-- Meal Name -->
+                <div class="md-form form-sm mb-3">
+                    <label for="packageTitle">Meal Package Name</label>
+                    <input type="name" id="packageTitle" name="packageTitle" value="{{data.packageTitle}}"
+                        class="form-control form-control-sm">
+                    {{#if data.nameError}}
+                    <div class="text-danger">
+                        Name is required.
+                    </div>
+                    {{/if}}
+                    {{#if name}}
+                    <div class="text-danger">
+                        Name already register! Please choose another name.
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- Price -->
+                <div class="md-form form-sm mb-3">
+                    <label for="price">Price</label>
+                    <input id="price" name="price" value="{{data.price}}" class="form-control form-control-sm validate">
+                    {{#if data.priceError}}
+                    <div class="text-danger">
+                        Price is required.
+                    </div>
+                    {{/if}}
+                    {{#if data.priceErrorAbove}}
+                    <div class="text-danger">
+                        Price must be a positive number.
+                    </div>
+                    {{/if}}
+                </div>
+
+
+
+                <!-- Category -->
+                <div class="md-form form-sm mb-3">
+                    <label for="category">Category</label>
+                    <input id="category" name="category" value="{{data.category}}"
+                        class="form-control form-control-sm validate">
+                    {{#if data.categoryError}}
+                    <div class="text-danger">
+                        Category is required.
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- Number of meal -->
+                <div class="md-form form-sm mb-3">
+                    <label for="numberOfMeals">Number of meals per package</label>
+                    <input type="number" id="numberOfMeals" name="numberOfMeals" value="{{data.numberOfMeals}}"
+                        class="form-control form-control-sm">
+                    {{#if data.numberError}}
+                    <div class="text-danger">
+                        Number of meals is required.
+                    </div>
+                    {{/if}}
+                    {{#if data.numberErrorAbove}}
+                    <div class="text-danger">
+                        Number of meals must be above 0.
+                    </div>
+                    {{/if}}
+                </div>
+                <!-- Description -->
+                <div class="md-form form-sm mb-">
+                    <label for="description">Description</label>
+                    <textarea type="text" id="synopsis" name="synopsis" class="form-control"
+                        row="3">{{data.synopsis}}</textarea>
+                    {{#if data.descriptionError}}
+                    <div class="text-danger">
+                        Description is required.
+                    </div>
+                    {{/if}}
+                </div>
+                <!-- Upload Image -->
+                <div class="md-form form-sm mb-3">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" class="form-control-file">
+                    {{#if data.imageError}}
+                    <div class="text-danger">
+                        No image uploaded
+                    </div>
+                    {{/if}}
+
+                </div>
+
+                <!-- Is top -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" name="top" id="top">
+                    <label class="form-check-label" for="top">
+                        This is a top meal!
+                    </label>
+                </div>
+
+                <div class="text-center form-sm mt-2">
+                    <button type="submit" class="btn btn-success">Add Meal</button>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

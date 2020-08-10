@@ -1,0 +1,36 @@
+<div class="container mb-3 p-3">
+    {{#each package}}
+    <div class="row border-bottom border-success mt-2">
+
+        <div class="col-sm-3 div-img mb-2">
+            <img class="img-gal " alt="Image of {{packageTitle}}" src="/images/{{this.image}}" role="button"
+                onclick='goToPackage("{{packageTitle}}")'></img>
+        </div>
+        <div class="col-sm-2">
+            <h5 class="product-name"><strong> {{packageTitle}} </strong></h4>
+                <h5><strong>$ {{price}} / {{numberOfMeals}} </strong></h5>
+                <h4><small>{{category}}</small></h4>
+        </div>
+        <div class="col-sm-5">
+            <h4 class="my-5"><small>{{synopsis}}</small></h4>
+        </div>
+        <div class="col-sm-2">
+            <a href="/edit?package={{packageTitle}}" class="my-5 btn btn-success">edit meal</a>
+        </div>
+
+    </div>
+    {{/each}}
+</div>
+<style>
+    .div-img {
+        width: 100%;
+        height: 120px;
+
+    }
+
+    .img-gal {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
