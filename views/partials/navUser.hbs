@@ -1,13 +1,13 @@
-<div class="container border border-secondary rounded">
-    <nav class=" navbar ">
+<div class="container border border-secondary rounded p-0" style="width: 30rem;">
+    <nav class=" py-3 text-center px-0">
 
-        <button id="infoButton" class=" mx-auto btn btn-success text-white " onclick="showInfo()">My info</button>
-        <a href="/checkout" class=" mx-auto btn btn-success text-white ">My Order</a>
+        <button id="infoButton" class=" btn btn-success text-white " onclick="showInfo()">My info</button>
+        <a href="/checkout" class=" btn btn-success text-white ">My Order</a>
         {{#if user.clerk}}
-        <button id="addButton" class=" mx-auto btn btn-success text-white" onclick="showCreate()">New Package
+        <button id="addButton" class="  btn btn-success text-white" onclick="showCreate()">New Package
         </button>
 
-        <button id="editButton" class=" mx-auto btn btn-success text-white" onclick="showEdit()">Edit
+        <button id="editButton" class="  btn btn-success text-white" onclick="showEdit()">Edit
             Package
         </button>
         {{/if}}
